@@ -32,6 +32,5 @@ class Passenger(
 
         this.point -= price
     }
-
     /////추가
 }
