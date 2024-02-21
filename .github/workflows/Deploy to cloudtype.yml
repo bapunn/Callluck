@@ -2,13 +2,13 @@ name: Deploy to cloudtype
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Connect deploy key
         uses: cloudtype-github-actions/connect@v1
         with:
@@ -18,10 +18,10 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: cicd/farewelltaxi
+          project: kokosunsun1004/cicd
           stage: main
           yaml: |
-            name: # 프로젝트 이름 ex) `cicd`
+            name: farewelltaxi
             app: java@17
             options:
               ports: 8080
@@ -29,4 +29,3 @@ jobs:
               git:
                 url: git@github.com:${{ github.repository }}.git
                 ref: ${{ github.ref }}
-              preset: java-springboot
