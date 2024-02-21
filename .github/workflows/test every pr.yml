@@ -1,7 +1,7 @@
 wname: test every pr
 on:
   workflow_dispatch:
-  pull_request:
+  push:
 permissions:
   contents: read
   pull-requests: read
